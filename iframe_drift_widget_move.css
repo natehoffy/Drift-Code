@@ -1,0 +1,8 @@
+ 
+ # Code for moving the widget
+
+ iframe#drift-widget {
+     bottom: 100px !important;
+ }
+
+ 

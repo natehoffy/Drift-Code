@@ -1,0 +1,58 @@
+<script>
+'use strict';
+
+drift.on('ready', function (api) {
+
+    function getRefQueryParam(name) {
+        name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+        var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+        var results = regex.exec(location.search);
+        return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+    }
+
+    var PROPS = ['elqCampaignId'];
+
+    var numVisits = parseInt(localStorage.getItem('Drift.Targeting.numberOfVisits'));
+    var currentSession = parseInt(localStorage.getItem('Drift.Targeting.numberOfSessions'));
+    var lastSession = parseInt(localStorage.getItem('lastDriftSessionNumber'));
+
+    var newSession = false;
+    if (!lastSession || !currentSession || currentSession > lastSession) {
+        newSession = true;
+    }
+
+    localStorage.setItem('lastDriftSessionNumber', currentSession);
+
+    var attrs = {};
+    PROPS.map(function (prop) {
+        var value = getRefQueryParam(prop);
+        var propName = '';
+        if (numVisits === 1) {
+            propName = 'original_' + prop;
+            attrs[propName] = value;
+        }
+
+        if (newSession) {
+            propName = 'session_' + prop;
+            attrs[propName] = value;
+        }
+    });
+
+    if (Object.keys(attrs).length > 0) {
+        // console.log('set attrs', attrs)
+        drift.api.setUserAttributes(attrs);
+    }
+
+    // Set on email capture.
+    window.drift.on('emailCapture', function (e) {
+        var emailAttrs = {};
+        PROPS.map(function (prop) {
+            var value = getRefQueryParam(prop);
+            var propName = "conversion_" + prop;
+            emailAttrs[propName] = value;
+        });
+        // console.log('set emailAttrs', emailAttrs)
+        drift.api.setUserAttributes(emailAttrs);
+    });
+});
+</script>

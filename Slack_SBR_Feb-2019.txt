@@ -1,0 +1,77 @@
+Friday, February 1, 2019
+
+=> Slack
+  -> Attendees
+    -> Slack team
+      -> Sebastian - marketing systems / support holly and biz ops / part of biz tech
+      -> Mike - biz ops & strategy / partner with marketing / strategic inits and financial impacts
+      -> Holly - performance marketing / data focus
+      -> Saad - demand gen / bespoke marketing / ins and outs of Drift, works with Ian to support SDRs
+      -> Mark - in canada, oversees sales and biz dev focused on AMER
+        -> team are end users of Drift chat
+      -> Rachel
+        -> SDR team lead, users of Drift
+  -> marketing objectives
+    -> *quality* new customers: usage, paying, active, invite others
+    -> salesforce for sales team
+    -> awareness mentioned twice: shaping global perception among knowledge workers, and increasing customer awareness
+    -> initiatives
+      -> performance marketing to drive people to website to engage with content, chat, etc.
+        -> linkedin targeting
+        -> search ads, display, paid social, native ads
+      -> demand gen emails to customer segments to drive traffic to LP or straight to sales
+      -> personalizing the website
+        -> build better customer journeys based on who they know is visiting the site (ent grade vs not, end user v not)
+      -> scale tools
+
+    -> heavily invested in salesforce
+    -> invested in highspot and optimizely
+
+  -> inquiry from drift
+    -> number of times sdr interacts
+    -> lead = meet certain critera (email, reseller), opp of a certain size
+    -> volume of live chat is third in volume
+      -> zendesk / contact us is number one (form)
+
+
+  -> in product reporting
+  -> frequent unexpected outages
+    -> unanswered / unexplained support
+  -> bugs product issues
+  -> time zone support limited to AMER
+
+  ESB -> self serve only, playbook firing issues
+    dynamic segmentation from a support inquiry - build question in bot and have attribute to target dynamic
+
+  What playbooks are really successful, and what aren't?
+
+  EMEA, Japan & APAC
+    drift bot surfacing notifications to each rep despite team or time zone
+
+  how does Drift make Spion "in app"
+
+  Tactical steps to be successful this year
+    -> line by line
+
+  system information from clearbit "or" data warehouse. want to dive into data warehouse
+
+
+
+_data warehouse?
+  -> redshift on aws
+
+
+cookied causing issues with online and offline playbooks / why?
+
+custom csv that Drift team helped build as the "dashboard"
+  - bot sends, convos had, Sales Accepted Opportunity
+  - chat rate -- sales v support
+    -- how many went to sfdc as leads
+  - ghosted data
+  - reporting from API models on the server side
+
+
+
+_ how many customers use Zendesk direct integration
+
+_ dashboard & reporting more immediate - need convo analytics

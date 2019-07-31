@@ -1,0 +1,119 @@
+##### Friday, January 25, 2019 #####
+
+//  4 customer calls
+
+//  kronos Triage
+
+//  digital guardian marketo integration
+
+//  Artemis system integration guidance, and form replacement recommendation
+
+//  
+
+##### Thursday, January 24, 2019 #####
+
+//  Make progress on jobs-to-be-done for escalations
+
+//  Start work on walk through for technical example of using marketo munchkin cookie to set attributes
+
+//  Sync with Joel on some tech stuff / learning power-hour
+
+//  WestRock KickFire v. Drift Intel for ABM walk-through {Cara Herrick}
+
+//  Lionbridge sync on Marketo fields {Erin Washburn}
+
+//  HubSpot workflows with Metroandu {Erin Washburn}
+
+//  Technical "questionnaire" for Amplitude {Jon Mariano}
+
+//  Amplitude workflow walk through {API questions}
+
+//  Triaged Kronos issue {Cara Herrick}
+
+##### Wednesday, January 23, 2019 #####
+
+//  Scheduled syncs with Taylor & Molly
+
+//  Make more progress on jobs-to-be-done for escalations
+
+//  Met for 30 mins on Internal Red Hat {Taylor Miller} debrief - sync issues and other strategic troubles for them to renew
+
+//  Advised ideas.com {Cristina Costa} (relatively new customer) on setting up SFDC integration
+
+//  Did a little learning on campaign syncing to SFDC with dlee {David Lee}
+
+//  Quick SFDC sync testing with Red Hat & internal team {Taylor Miller}
+
+//  Walked GE through Marketo integration solution to allow for more granular playbook attribution {David Lee}
+
+//  Gatehouse Media marketo integration walk through {Kim Edwards}
+
+//  WestRock KickFire email help {Cara Herrick}
+
+//  Zenefits Zapier to multiple Salesforce campaigns assist {Taylor}
+
+
+##### Tuesday, January 22, 2019 #####
+
+//  G2 crowd go-live sync with @Erin Washburn
+
+//  Infor marketo analytics with @Kim Edwards
+
+//  work on jobs to be done for escalations to solutions specialists
+
+//  First chat shift in the books - routed once and closed it!
+
+//  Advised @Burger's customer on setting up a link between Drift and Smoove.io with Zapier
+
+//  Guided @Clifford to Drift dev documentation for one of his customers to build and publish their own app on Drift
+
+//  circle back on Lionbridge marketo sync issue w/ support. support said field type datetime issue syncing to marketo - fix is to
+    remove these fields for now.
+
+//  escalated support issue w/ Drift creating duplicate contacts in Salesforce on Discover Org's account for @jaclynrv
+
+//  advised on support issue regarding Kronos lead unable to update from Drift to salesforce for @cara and escalated
+
+//  advise on leveraging API and set attributes method to populate Drift custom attributes with Kickfire data for one of @cara's
+    customers
+
+//  advised @michele on using Drift Platform APIs to pull conversation data for use w/ NLP platform
+
+//  assisted one of @Clifford's customers with questions around how conversation links are pushed from Drift to HubSpot
+
+//  CLP walk through with @Joshua Perk -- set up a sub-domain for use with the future Solutions Specialist bot! More to come on this
+
+
+
+##### Friday, January 18, 2019 ########
+
+//  Partnered with @Mike Curley to provide a solution for his customer wrt mapping lead source to SFDC, and conducting various
+    reporting in SFDC. Also advised Mike on how he could communicate with the client to route of a distribution list versus using Drift
+    calendar drop.
+
+//  API walk through for @dlee 's customer, RioSalado
+
+//  Axial walk through of using drift.identify() method, and Salesforce attribute mapping along with @Jacob
+
+//  Playbook rebuild and workflow recommendation session with Ewan at Workfront - filling in for Cara and Bailey :)
+
+//  Caught up with Nish
+
+//  Walked ADP (@Lemieux's custy) through conversation reporting using the API so that they can pipe data into internal databases where they
+    can run more granular executive reports, and conduct conversation analytics
+
+//  Partnered with @jason to get Uberflip squared away on how they can pull attributes from Marketo for targeting (GET query filtered by
+    the munchkin cookie), and how to use Salesforce routing rules to route conversations to the right reps.
+
+//  Caught up with @dlee over some Boba tea
+
+//  Hopped on a call with @Max Sandoval and @Cliff to troubleshoot an issue where a customer could not publish a playbook
+
+//  Recorded video walk through of using the drift.identify() method
+    https://share.vidyard.com/watch/83PqEF1VGnEKBLoPra2BTR
+
+//  Reviewed RevRun for January 2019
+
+//  recommendation for one of @Max Sandoval's customers to assign playbooks to multiple/varying campaigns
+
+//  Reviewed sync settings for Lionbridge to ensure Datetime fields mapping correctly between Drift <> Marketo

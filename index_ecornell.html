@@ -1,0 +1,186 @@
+<html>
+    <head>
+      <title>Drift Test - @natehoffy</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset='utf-8'>
+<script>
+    "use strict";
+
+      !function() {
+        var t = window.driftt = window.drift = window.driftt || [];
+        if (!t.init) {
+          if (t.invoked) return void (window.console && console.error && console.error("Drift snippet included twice."));
+          t.invoked = !0, t.methods = [ "identify", "config", "track", "reset", "debug", "show", "ping", "page", "hide", "off", "on" ],
+          t.factory = function(e) {
+            return function() {
+              var n = Array.prototype.slice.call(arguments);
+              return n.unshift(e), t.push(n), t;
+            };
+          }, t.methods.forEach(function(e) {
+            t[e] = t.factory(e);
+          }), t.load = function(t) {
+            var e = 3e5, n = Math.ceil(new Date() / e) * e, o = document.createElement("script");
+            o.type = "text/javascript", o.async = !0, o.crossorigin = "anonymous", o.src = "https://js.driftt.com/include/" + n + "/" + t + ".js";
+            var i = document.getElementsByTagName("script")[0];
+            i.parentNode.insertBefore(o, i);
+          };
+        }
+      }();
+      drift.SNIPPET_VERSION = "0.3.1";
+      drift.load("rhfnkn45i93k");
+
+      var poiUrls = {
+    '/l/44232/2017-10-04/c7bbv2' : 'Advanced Hospitality Revenue Management',
+    '/beer-essentials' : 'Beer Essentials',
+    '/beer-tasting' : 'Beer Tasting',
+    '/blockchain-for-business' : 'Blockchain for Business',
+    '/business-economics/' : 'Business Economics',
+    '/healthcare-business' : 'Business Excellence for Health Professionals',
+    '/business-law' : 'Business Law',
+    '/business-statistics/' : 'Business Statistics',
+    '/business-strategy' : 'Business Strategy',
+    '/business-analytics' : 'Business Analytics',
+    '/change-management' : 'Change Management',
+    '/commercial-real-estate' : 'Commercial Real Estate',
+    '/conflict-resolution' : 'Conflict Resolution',
+    '/critical-thinking/' : 'Critical Thinking',
+    '/l/44232/2017-12-12/d72b17' : 'Data Analytics 360',
+    '/data-analytics' : 'Data Analytics',
+    '/data-science' : 'Data Science',
+    '/data-driven-marketing' : 'Data-Driven Marketing',
+    '/design-thinking' : 'Design Thinking',
+    '/digital-leadership/' : 'Digital Leadership',
+    '/digital-marketing' : 'Digital Marketing',
+    '/digital-transformation' : 'Digital Transformation',
+    '/diversity-and-inclusion' : 'Diversity and Inclusion',
+    '/diversity-and-inclusion-for-HR' : 'Diversity and Inclusion for HR',
+    '/employment-law' : 'Employment Law',
+    '/engineering-leadership' : 'Engineering Leadership',
+    '/engineering' : 'Engineering',
+    '/executive-leadership-for-healthcare' : 'Executive Healthcare Leadership',
+    '/executive-leadership' : 'Executive Leadership',
+    '/executive-master-of-health-administration' : 'Executive Master of Health Administration',
+    '/emhrm' : 'Executive Master of Human Resource Management',
+    '/executive-master-of-human-resource-management/' : 'Executive Master of Human Resource Management',
+    '/executive-presence' : 'Executive Presence',
+    '/executive-women-in-leadership' : 'Executive Women in Leadership',
+    '/finance' : 'Finance',
+    '/financial-management' : 'Financial Management',
+    '/financial-success-for-nonprofits' : 'Financial Success for Nonprofits',
+    '/fintech' : 'FinTech',
+    '/food-and-beverage-management' : 'Food and Beverage Management',
+    '/food-executive-program' : 'Food Executive Program',
+    '/l/44232/2018-03-22/frwbcp' : 'Healthcare Change Leadership',
+    '/l/44232/2017-10-04/c7bht6' : 'Healthcare Facilities Design',
+    '/healthcare' : 'Healthcare',
+    '/High-Performance-Leadership' : 'High-Performance Leadership',
+    '/hospitality' : 'Hospitality',
+    '/hospitality-digital-marketing' : 'Hospitality Digital Marketing',
+    '/hospitalitymanagement' : 'Hospitality Management',
+    '/hotel-planning-and-design' : 'Hotel Planning and Design',
+    '/hotel-real-estate-investments' : 'Hotel Real Estate Investments and Asset Management',
+    '/hotel-revenue-management' : 'Hotel Revenue Management',
+    '/hr-analytics' : 'HR Analytics',
+    '/hr-transformation/' : 'HR Transformation',
+    '/hr-certificate-programs' : 'Human Resources',
+    '/l/44232/2017-10-04/c7bbg4' : 'Human Resources Essentials',
+    '/l/44232/2017-05-19/9mh512' : 'Human Resources Management',
+    '/innovation-strategy' : 'Innovation Strategy',
+    '/integrated-marketing-360' : 'Integrated Marketing 360',
+    '/international-public-and-ngo-management' : 'International Public and NGO Management',
+    '/intrapreneurship' : 'Intrapreneurship',
+    '/l/44232/2017-07-20/b6v9f8' : 'Leadership and Strategic Management',
+    '/leadership' : 'Leadership and Strategic Management',
+    '/leadership-essentials' : 'Leadership Essentials',
+    '/leading-a-culture-of-service-excellence' : 'Leading a Culture of Service Excellence',
+    '/leading-virtual-teams/' : 'Leading Virtual Teams',
+    '/machine-learning' : 'Machine Learning',
+    '/management-360' : 'Management 360',
+    '/marketing-strategy' : 'Marketing Strategy',
+    '/marketing' : 'Marketing',
+    '/master-certificate-in-hospitality-management' : 'Master Certificate in Hospitality Management',
+    '/master-certificate-in-revenue-management' : 'Master Certificate in Revenue Management',
+    '/master-of-engineering-in-engineering-management' : 'Master of Engineering in Engineering Management',
+    '/l/44232/2017-10-04/c7b79v' : 'Measuring and Improving Business Performance',
+    '/military-students' : 'Master Certificate in Human Resources',
+    '/nutrition-and-healthy-living' : 'Nutrition and Healthy Living',
+    '/nutrition-counseling' : 'Nutrition Counseling',
+    '/pharmaceutical-management' : 'Pharmaceutical Management',
+    '/phr-prep' : 'PHR Prep',
+    '/plant-based-nutrition' : 'Plant-Based Nutrition',
+    '/product-management' : 'Product Management',
+    '/professionalmediation' : 'Professional Mediation',
+    '/project-leadership-certificate' : 'Project Leadership',
+    '/project-management-360' : 'Project Management 360',
+    '/project-management' : 'Project Management',
+    '/project' : 'Project Leadership and Systems Design',
+    '/psychology-of-leadership' : 'Psychology of Leadership',
+    '/public-sector-leadership/' : 'Public Sector Leadership',
+    '/real-estate' : 'Real Estate',
+    '/restaurant-revenue-management-certificate' : 'Restaurant Revenue Management',
+    '/sales-growth-certificate' : 'Sales Growth',
+    '/servant-leadership' : 'Servant Leadership',
+    '/service-excellence' : 'Service Excellence',
+    '/social-media-in-hr-from-policy-to-practice' : 'Social Media in HR',
+    '/software-development-in-python' : 'Software Development in Python',
+    '/l/44232/2017-09-01/br6msb' : 'Strategic Healthcare Leadership',
+    '/strategic-hospitality-marketing' : 'Strategic Hospitality Marketing',
+    '/strategic-hr-leadership' : 'Strategic Human Resources Leadership',
+    '/systems-design/' : 'Systems Design',
+    '/systems-thinking/' : 'Systems Thinking',
+    '/talent-acquisition-and-planning/' : 'Talent Acquisition and Planning',
+    '/technology-leadership' : 'Technology Leadership',
+    '/technology' : 'Technology',
+    '/vuca-leadership-military' : 'VUCA Leadership',
+    '/vuca-leadership' : 'VUCA Leadership',
+    '/web-design-and-development' : 'Web Design and Development',
+    '/women-in-leadership-certificate' : 'Women in Leadership'
+    };
+
+    var thisPoi = (poiUrls[location.pathname] ? poiUrls[location.pathname] : 'General Interest');
+
+    jQuery(document).ready(function () {
+      jQuery('.chat-link').unbind().on('click', function(){
+        drift.api.startInteraction({interactionId:91748});
+      });
+    });
+
+    drift.on('ready', function(api, payload) {
+      drift.api.setUserAttributes({ "Program of Interest": input.value })
+      drift.track('successfully found program of interest on page: ' + location.href)
+    });
+
+</script>
+
+<!-- Start of Async Munchkin Code -->
+<script type="text/javascript">
+(function() {
+  var didInit = false;
+  function initMunchkin() {
+    if(didInit === false) {
+      didInit = true;
+      Munchkin.init('802-BEU-656');
+    }
+  }
+  var s = document.createElement('script');
+  s.type = 'text/javascript';
+  s.async = true;
+  s.src = '//munchkin.marketo.net/munchkin.js';
+  s.onreadystatechange = function() {
+    if (this.readyState == 'complete' || this.readyState == 'loaded') {
+      initMunchkin();
+    }
+  };
+  s.onload = initMunchkin;
+  document.getElementsByTagName('head')[0].appendChild(s);
+})();
+</script>
+<!-- End of Async Munchkin Code -->
+  </head>
+  <body>
+      <h1>Widget Test </h1>
+      <p>I really hope you're enjoying Drift!</p>
+      <!--<button onclick="console.log(mkto_value)">Read Cookie</button>-->
+      <button onclick="drift.api.startInteraction({ interactionId: 94218 });">Sidebar Open</button>
+  </body>
+</html>
