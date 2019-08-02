@@ -4,6 +4,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset='utf-8'>
 
+  <!-- Salesforce Chat Script
+    <script type='text/javascript' src='https://c.la2-c1-ph2.salesforceliveagent.com/content/g/js/46.0/deployment.js'></script>
+    <script type='text/javascript'>
+      liveagent.init('https://d.la2-c1-ph2.salesforceliveagent.com/chat', '5721U0000001pyj', '00D1U000000GShp');
+    </script>
+ End Salesforce Chat Script -->
+
     <!-- Start of Async Drift Code -->
     <script>
     "use strict";
@@ -30,12 +37,9 @@
     }();
     drift.SNIPPET_VERSION = '0.3.1';
     drift.load('d6yh3x69hvct');
-
-    drift.on('ready', function(api, payload) {
-      drift.api.setUserAttributes({ "FavoriteColor": 'Blue' })
-    });
+    
     </script>
-    <!-- End of Async Drift Code -->
+     <!-- End of Async Drift Code -->
 
 <!-- Start of Async Munchkin Code -->
 <script type="text/javascript">
@@ -66,6 +70,6 @@
       <h1>Widget Test </h1>
       <p>I really hope you're enjoying Drift!</p>
       <!--<button onclick="console.log(mkto_value)">Read Cookie</button>-->
-      <button onclick="drift.api.startInteraction({ interactionId: 94218 });">Sidebar Open</button>
+      <button onclick="liveagent.startChat('5721U0000001pyj');">Sidebar Open</button>
   </body>
 </html>
