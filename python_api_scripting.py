@@ -6,7 +6,7 @@ from requests.exceptions import HTTPError
 #from requests.auth import AuthBase
 
 ##### Define URLs for requests #####
-convo_summary_url = 'https://driftapi.com/reports/conversation-summary'
+convo_reports_url = 'https://driftapi.com/reports/conversations'
 convo_url = 'https://driftapi.com/conversations/{}'
 contacts_url = 'https://driftapi.com/contacts/{}'
 messages_url = 'https://driftapi.com/conversations/{}/messages'
@@ -24,18 +24,10 @@ convo_reporting_data = json.dumps({
             ]
         }
     ],
-    "aggregations": [
-        {
-            "property": "id",
-            "type": "TERMS",
-            "metrics": [
-                {
-                    "type": "DOC_COUNT"
-                }
-            ]
-        }
+    "metrics": [
+        "meaningfulConversation"
     ]
-    })
+})
 
 auth_type = 'Bearer '
 auth_token = 'B2VNoMjBnEspBKxNZu2rxWA4khRoiEfF' #input("Please insert your bearer token: ")
@@ -44,14 +36,13 @@ auth = auth_type + auth_token
 headers = {'Authorization': auth, 'Content-Type': 'application/json'}
 ##### End definine data, auth, and headers #####
 
-##### First request to conversation-summary endpoint to get conversationId(s) #####
+##### First request to conversations reports endpoint to get conversationId(s) #####
 try:
-    r = requests.post(url = convo_summary_url, data = convo_reporting_data, headers = headers)
+    r = requests.post(url = convo_reports_url, data = convo_reporting_data, headers = headers)
     r.raise_for_status()
     json1 = r.json()
-    conversationIds = json1['data']['rows']
+    conversationIds = json1['data']
     df = json_normalize(conversationIds)
-    df['dimensions'] = df['dimensions'].str.get(0)
 except HTTPError as http_error:
     print(f'HTTP error occurred: {http_error}')
 except Exception as error:
@@ -59,7 +50,7 @@ except Exception as error:
 else:
     print('Success! Continuing to next request. \n')
 
-convoIdList = df['dimensions'].tolist()
+convoIdList = df['conversationId'].tolist()
 ##### End first request to get conversationId(s) #####
 
 ##### Second request to loop over conversationId from above and get conversation model #####
@@ -74,7 +65,7 @@ for i in range(len(convoIdList)):
 contactList = df2['contactId'].tolist()
 print('Success 2! Continuing to next request.')
 ##### End second request to retrieve list of conversations #####
-
+print(df2)
 ##### Third request to retrieve contacts from conversations #####
 df3 = pd.DataFrame()
 for i in range(len(contactList)):
@@ -86,7 +77,7 @@ for i in range(len(contactList)):
 
 print('Success 3! Continuing to next request.')
 ##### End third request to get contacts from conversations #####
-
+print(df3)
 ##### Get conversation messages from a conversation #####
 df4 = pd.DataFrame()
 for i in range(len(convoIdList)):
