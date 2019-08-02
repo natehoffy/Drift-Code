@@ -1,0 +1,22 @@
+{
+    "filters": [
+        {
+            "property": "lastAgentId",
+            "operation": "HAS_PROPERTY"
+        },
+        {
+            "property": "firstCloseAt",
+            "operation": "BETWEEN",
+            "values": [
+                "2019-08-01",
+                "2019-08-02"
+            ]
+        }
+    ],
+    "metrics": [
+      			"timeToCloseMillis",
+      			"timeToAgentResponseMillis",
+      			"firstAgentMessageAt",
+      			"relatedPlaybookId"
+    ]
+}
