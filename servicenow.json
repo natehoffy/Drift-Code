@@ -1,0 +1,26 @@
+{
+  "filters":[
+    {
+      "property": "botStatus",
+      "operation": "CONTAINS",
+      "values": [
+        "HUMAN_ONLY",
+        "BOT_ASSISTED"
+      ]
+    },
+    {
+      "property": "firstCloseAt",
+      "operation": "BETWEEN",
+      "values": [
+        "2019-07-22",
+        "2019-07-26" //numeric millisecond timestamp may also be used
+      ]
+    }
+  ],
+  "metrics": [
+      "id",
+    	"timeToCloseMillis",
+    	"timeToAgentResponseMillis",
+    	"relatedPlaybookId"
+  ]
+}
