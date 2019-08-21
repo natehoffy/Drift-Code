@@ -37,7 +37,11 @@
     }();
     drift.SNIPPET_VERSION = '0.3.1';
     drift.load('d6yh3x69hvct');
-
+    drift.on('ready', function() {
+      drift.api.setUserAttributes({
+        FavoriteColor: 'blue'
+      });
+    });
     </script>
      <!-- End of Async Drift Code -->
 
@@ -70,6 +74,6 @@
       <h1>Widget Test </h1>
       <p>I really hope you're enjoying Drift!</p>
       <!--<button onclick="console.log(mkto_value)">Read Cookie</button>-->
-      <button onclick="liveagent.startChat('5721U0000001pyj');">Sidebar Open</button>
+      <button onclick="drift.api.startInteraction({ interactionId: 94474 });">Sidebar Open</button>
   </body>
 </html>
