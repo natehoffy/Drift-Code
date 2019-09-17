@@ -1,54 +1,53 @@
-<html>
-    <head>
-      <title>Drift Test - @natehoffy</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta charset='utf-8'>
+<!DOCTYPE html>
 
-  <!-- Salesforce Chat Script
-    <script type='text/javascript' src='https://c.la2-c1-ph2.salesforceliveagent.com/content/g/js/46.0/deployment.js'></script>
-    <script type='text/javascript'>
-      liveagent.init('https://d.la2-c1-ph2.salesforceliveagent.com/chat', '5721U0000001pyj', '00D1U000000GShp');
-    </script>
- End Salesforce Chat Script -->
+<head>
+  <title>Drift Test - @natehoffy</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset='utf-8'>
 
-    <!-- Start of Async Drift Code -->
-    <script>
-    "use strict";
+<!-- Start of Async Drift Code -->
+<script>
+"use strict";
 
-    !function() {
-      var t = window.driftt = window.drift = window.driftt || [];
-      if (!t.init) {
-        if (t.invoked) return void (window.console && console.error && console.error("Drift snippet included twice."));
-        t.invoked = !0, t.methods = [ "identify", "config", "track", "reset", "debug", "show", "ping", "page", "hide", "off", "on" ],
-        t.factory = function(e) {
-          return function() {
-            var n = Array.prototype.slice.call(arguments);
-            return n.unshift(e), t.push(n), t;
-          };
-        }, t.methods.forEach(function(e) {
-          t[e] = t.factory(e);
-        }), t.load = function(t) {
-          var e = 3e5, n = Math.ceil(new Date() / e) * e, o = document.createElement("script");
-          o.type = "text/javascript", o.async = !0, o.crossorigin = "anonymous", o.src = "https://js.driftt.com/include/" + n + "/" + t + ".js";
-          var i = document.getElementsByTagName("script")[0];
-          i.parentNode.insertBefore(o, i);
-        };
-      }
-    }();
-    drift.SNIPPET_VERSION = '0.3.1';
-    drift.load('d6yh3x69hvct');
-<<<<<<< HEAD
+!function() {
+  var t = window.driftt = window.drift = window.driftt || [];
+  if (!t.init) {
+    if (t.invoked) return void (window.console && console.error && console.error("Drift snippet included twice."));
+    t.invoked = !0, t.methods = [ "identify", "config", "track", "reset", "debug", "show", "ping", "page", "hide", "off", "on" ],
+    t.factory = function(e) {
+      return function() {
+        var n = Array.prototype.slice.call(arguments);
+        return n.unshift(e), t.push(n), t;
+      };
+    }, t.methods.forEach(function(e) {
+      t[e] = t.factory(e);
+    }), t.load = function(t) {
+      var e = 3e5, n = Math.ceil(new Date() / e) * e, o = document.createElement("script");
+      o.type = "text/javascript", o.async = !0, o.crossorigin = "anonymous", o.src = "https://js.driftt.com/include/" + n + "/" + t + ".js";
+      var i = document.getElementsByTagName("script")[0];
+      i.parentNode.insertBefore(o, i);
+    };
+  }
+}();
+drift.SNIPPET_VERSION = '0.3.1';
+//drift.config({ initDelay: 5000 }); // delay of 5 seconds
+drift.load('d6yh3x69hvct');
 
-  </script>
-=======
-    drift.on('ready', function() {
-      drift.api.setUserAttributes({
-        FavoriteColor: 'blue'
-      });
-    });
-    </script>
-     <!-- End of Async Drift Code -->
->>>>>>> ae2ab64b2a0340333e54e48a49ff653aa071c171
+/*drift.on('ready', function(api){
+  window.drift.on("conversation:playbookDismissed", function(e) {
+    console.log("user dismissed a playbook with playbookId: " + e.playbookId);
+    //api.widget.hide();
+  });
+}); */
+
+drift.on('ready', function(api, payload){
+  drift.on('message', function(e) {
+    drift.api.goToConversation( {conversationId: e.conversationId} );
+  });
+});
+
+</script>
+<!-- End of Async Drift Code -->
 
 <!-- Start of Async Munchkin Code -->
 <script type="text/javascript">
@@ -81,4 +80,3 @@
       <!--<button onclick="console.log(mkto_value)">Read Cookie</button>-->
       <button onclick="drift.api.startInteraction({ interactionId: 94474 });">Sidebar Open</button>
   </body>
-</html>
