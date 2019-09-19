@@ -30,9 +30,16 @@
   }
 }();
 drift.SNIPPET_VERSION = '0.3.1';
-//drift.config({ initDelay: 5000 }); // delay of 5 seconds
 drift.load('d6yh3x69hvct');
 
+drift.on('ready', function() {
+  drift.api.setUserAttributes({
+    FavoriteColor: "Yellow"
+  });
+  console.log('Set attribute')
+  drift.page();
+  console.log('Refreshed page')
+});
 </script>
 <!-- End of Async Drift Code -->
 
@@ -62,7 +69,7 @@ drift.load('d6yh3x69hvct');
 <!-- End of Async Munchkin Code -->
   </head>
   <body>
-      <h1>Widget Test Home </h1>
+      <h1>Widget Test </h1>
       <p>I really hope you're enjoying Drift!</p>
       <!--<button onclick="console.log(mkto_value)">Read Cookie</button>-->
       <button onclick="drift.api.startInteraction({ interactionId: 94474 });">Sidebar Open</button>

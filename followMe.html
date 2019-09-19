@@ -33,6 +33,36 @@ drift.SNIPPET_VERSION = '0.3.1';
 //drift.config({ initDelay: 5000 }); // delay of 5 seconds
 drift.load('d6yh3x69hvct');
 
+drift.on("message:sent", function(data) {
+  if(data.conversationId > 0) {
+    document.cookie = "DriftInteracted=Yes";
+    document.cookie = "DriftConversationId=" + data.conversationId;
+  };
+});
+
+drift.on('sidebarClose', function() {
+  // use this if you want new playbooks to fire / don't want the current conversation to pop up again
+  // if the site visitor closes out the chat
+  // the end result is that the convesration only "follows" you around the website if you don't X out of the chat
+  document.cookie = "DriftConversationId= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
+  document.cookie = "DriftInteracted= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
+});
+
+drift.on('ready', function() {
+  function getCookie(name) {
+    var re = new RegExp(name + "=([^;]+)");
+    var value = re.exec(document.cookie);
+    return (value != null) ? unescape(value[1]) : null;
+  };
+
+  const hasInteractedThisSession = getCookie('DriftInteracted') && getCookie('DriftInteracted') === 'Yes';
+  const interactedConversationId = hasInteractedThisSession && +getCookie('DriftConversationId');
+
+  if (interactedConversationId) {
+    drift.api.goToConversation({ conversationId: interactedConversationId })
+  };
+});
+
 </script>
 <!-- End of Async Drift Code -->
 
@@ -62,7 +92,7 @@ drift.load('d6yh3x69hvct');
 <!-- End of Async Munchkin Code -->
   </head>
   <body>
-      <h1>Widget Test Home </h1>
+      <h1>Widget Test </h1>
       <p>I really hope you're enjoying Drift!</p>
       <!--<button onclick="console.log(mkto_value)">Read Cookie</button>-->
       <button onclick="drift.api.startInteraction({ interactionId: 94474 });">Sidebar Open</button>
