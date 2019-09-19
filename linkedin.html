@@ -31,25 +31,24 @@
 drift.SNIPPET_VERSION = '0.3.1';
 drift.load('d6yh3x69hvct');
 
-
-
-window.drift.on("conversation:buttonClicked", function(data) {
-  console.log("user clicked a button with text: " + data.buttonBody);
-  if(data.buttonBody === "Desktop") { // customize this to be whatever your button body is
-    window.location = 'https://www.forbes8.com/'; // customize this to redirect to the proper URL
-  } else if (data.buttonBody === "Mobile") { // customize this to be whatever your button body is
-  window.location = 'https://itunes.apple.com/gh/app/id1442754693?mt=8' //customize this to redirect to the proper URL
-  };
-});
-
 </script>
 <!-- End of Async Drift Code -->
 
+<!-- Redirect Function -->
+<script>
+
+function redirectTo(sUrl) {
+  window.location = sUrl
+};
+
+</script>
+<!-- End of redirect Function -->
+
     </head>
     <body>
-        <h1>Widget Test </h1>
-        <p>I really hope you're enjoying Drift!</p>
+        <h1>Widget Test - LinkedIn Simulator</h1>
+        <h2>I really hope you're enjoying Drift!</h2>
         <!--<button onclick="console.log(mkto_value)">Read Cookie</button>-->
-        <button onclick="drift.api.sidebar.open()">Sidebar Open</button>
+        <button onclick="redirectTo('http://localhost:8000/index.html?utm_source=linkedin')">Advertising Page</button>
     </body>
 </html>
