@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-
+<html>
 <head>
   <title>Drift Test - @natehoffy</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -30,40 +29,32 @@
   }
 }();
 drift.SNIPPET_VERSION = '0.3.1';
-//drift.config({ initDelay: 5000 }); // delay of 5 seconds
 drift.load('d6yh3x69hvct');
 
 </script>
 <!-- End of Async Drift Code -->
 
-<!-- Start of Async Munchkin Code -->
-<script type="text/javascript">
-(function() {
-  var didInit = false;
-  function initMunchkin() {
-    if(didInit === false) {
-      didInit = true;
-      Munchkin.init('802-BEU-656');
-    }
-  }
-  var s = document.createElement('script');
-  s.type = 'text/javascript';
-  s.async = true;
-  s.src = '//munchkin.marketo.net/munchkin.js';
-  s.onreadystatechange = function() {
-    if (this.readyState == 'complete' || this.readyState == 'loaded') {
-      initMunchkin();
-    }
-  };
-  s.onload = initMunchkin;
-  document.getElementsByTagName('head')[0].appendChild(s);
-})();
-</script>
-<!-- End of Async Munchkin Code -->
+
   </head>
   <body>
-      <h1>Widget Test Home </h1>
+      <h1>Widget Test </h1>
       <p>I really hope you're enjoying Drift!</p>
-      <!--<button onclick="console.log(mkto_value)">Read Cookie</button>-->
-      <button onclick="drift.api.startInteraction({ interactionId: 94474 });">Sidebar Open</button>
+      <script>
+      window.drift.on("conversation:buttonClicked", function(data) {
+        console.log("user clicked a button with text: " + data.buttonBody);
+        if(data.buttonBody == "Talk to Support") {
+          drift.unload();
+          if (!window._laq) {
+            window._laq = [];
+          }
+          window._laq.push(function() {
+            liveagent.showWhenOnline('5731U000000627p', document.getElementById('liveagent_button_online_5731U000000627p'));
+            liveagent.showWhenOffline('5731U000000627p', document.getElementById('liveagent_button_offline_5731U000000627p'));
+          });
+          liveagent.init('https://d.la2-c1-ph2.salesforceliveagent.com/chat', '5721U00000060s8', '00D1U000000GShp');
+        }
+      });
+      </script>
+      <button onclick="drift.api.startInteraction({ interactionId: 108338 });">Chat Now</button>
   </body>
+</html>
