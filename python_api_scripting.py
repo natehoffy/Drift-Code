@@ -3,6 +3,7 @@ import pandas as pd
 import requests
 from pandas.io.json import json_normalize
 from requests.exceptions import HTTPError
+
 #from requests.auth import AuthBase
 
 ##### Define URLs for requests #####
