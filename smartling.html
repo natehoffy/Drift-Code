@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<head>
+  <title>Drift Test - @natehoffy</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset='utf-8'>
+
+<!-- Start of Async Drift Code -->
+<script>
+"use strict";
+
+!function() {
+  var t = window.driftt = window.drift = window.driftt || [];
+  if (!t.init) {
+    if (t.invoked) return void (window.console && console.error && console.error("Drift snippet included twice."));
+    t.invoked = !0, t.methods = [ "identify", "config", "track", "reset", "debug", "show", "ping", "page", "hide", "off", "on" ],
+    t.factory = function(e) {
+      return function() {
+        var n = Array.prototype.slice.call(arguments);
+        return n.unshift(e), t.push(n), t;
+      };
+    }, t.methods.forEach(function(e) {
+      t[e] = t.factory(e);
+    }), t.load = function(t) {
+      var e = 3e5, n = Math.ceil(new Date() / e) * e, o = document.createElement("script");
+      o.type = "text/javascript", o.async = !0, o.crossorigin = "anonymous", o.src = "https://js.driftt.com/include/" + n + "/" + t + ".js";
+      var i = document.getElementsByTagName("script")[0];
+      i.parentNode.insertBefore(o, i);
+    };
+  }
+}();
+drift.SNIPPET_VERSION = '0.3.1';
+drift.load('3w3sew2sx99k');
+
+drift.on("ready",function(b){
+  function e(a){
+    a=a.replace(/[\[]/,"\\[").replace(/[\]]/,"\\]");
+    a=new RegExp("[\\?\x26]"+a+"\x3d([^\x26#]*)");
+    a=a.exec(location.search);return null===a?"":decodeURIComponent(a[1].replace(/\+/g," "))
+  }
+  var f="utm_campaign utm_content utm_medium utm_page utm_source utm_term".split(" "),k=parseInt(localStorage.getItem("Drift.Targeting.numberOfVisits"));
+  b=parseInt(localStorage.getItem("Drift.Targeting.numberOfSessions"));
+  var g=parseInt(localStorage.getItem("lastDriftSessionNumber")), h=!1;
+  if(!g||!b||b>g)h=!0;
+  localStorage.setItem("lastDriftSessionNumber",b);
+  var c={};f.map(function(a){var b=e(a);if(1===k)
+    {var d="original_"+a+"_custom";c[d]=b}h&&(d="session_"+a,c[d]=b)});
+    0<Object.keys(c).length&&drift.api.setUserAttributes(c);
+    window.drift.on("emailCapture",function(a){var b={};f.map(function(a){var c=e(a);
+      a="conversion_"+a;b[a]=c});drift.api.setUserAttributes(b)});b=document.getElementById("drift-form");
+      b.onsubmit=function(a){a.preventDefault();a=document.getElementById("drift-form-email");
+  if(a=a.value)drift.identify({email:a}),drift.track("Email Captured",{emailValue:a}),window.drift.api.setUserAttributes({email:a}),window.drift.api.startInteraction({ interactionId: 110016 });}});
+
+</script>
+<!-- End of Async Drift Code -->
+
+<!-- Start of Async Munchkin Code -->
+<script type="text/javascript">
+(function() {
+  var didInit = false;
+  function initMunchkin() {
+    if(didInit === false) {
+      didInit = true;
+      Munchkin.init('802-BEU-656');
+    }
+  }
+  var s = document.createElement('script');
+  s.type = 'text/javascript';
+  s.async = true;
+  s.src = '//munchkin.marketo.net/munchkin.js';
+  s.onreadystatechange = function() {
+    if (this.readyState == 'complete' || this.readyState == 'loaded') {
+      initMunchkin();
+    }
+  };
+  s.onload = initMunchkin;
+  document.getElementsByTagName('head')[0].appendChild(s);
+})();
+</script>
+<!-- End of Async Munchkin Code -->
+  </head>
+  <body>
+      <h1>Widget Test Home </h1>
+      <p>I really hope you're enjoying Drift!</p>
+      <!--<button onclick="console.log(mkto_value)">Read Cookie</button>-->
+      <button onclick="drift.api.startInteraction({ interactionId: 94474 });">Sidebar Open</button>
+  </body>
