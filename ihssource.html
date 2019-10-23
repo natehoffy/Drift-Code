@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 
 <html>
-
+<h1>Testing</h1>
 <!-- Start of Async Drift Code -->
 <script>
 "use strict";
@@ -28,12 +28,15 @@
   }
 }();
 drift.SNIPPET_VERSION = '0.3.1';
-drift.config({ init.delay: 30000 }) // <-- configurable number of milliseconds to delay startup
+// drift.config({ init.delay: 30000 }) // <-- configurable number of milliseconds to delay startup
 drift.load('px2iwrcmfxwz');
 
-window.drift.on('ready',function() { // When the page loads and Drift is ready
-	drift.api.startInteraction({ interactionId: 110293 }); // Fire this particular playbook (make sure to put the proper interaction ID in)
-})
+setTimeout(function() {
+  window.drift.on('ready', function() { // When the page loads and Drift is ready
+  	drift.api.startInteraction({ interactionId: 110293 }); // Fire this particular playbook (make sure to put the proper interaction ID in)
+  });
+},
+30000);
 </script>
 <!-- End of Async Drift Code -->
 
