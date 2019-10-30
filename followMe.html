@@ -34,6 +34,7 @@ drift.SNIPPET_VERSION = '0.3.1';
 drift.load('d6yh3x69hvct');
 
 drift.on("message:sent", function(data) {
+  console.log("Message Sent")
   if(data.conversationId > 0) {
     document.cookie = "DriftInteracted=Yes";
     document.cookie = "DriftConversationId=" + data.conversationId;
