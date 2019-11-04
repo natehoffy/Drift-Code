@@ -4,6 +4,45 @@
   <title>Drift Test - @natehoffy</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta charset='utf-8'>
+<style>
+  #chat-wrapper {
+    border: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    padding: 4px;
+    padding-bottom: 0px;
+    background-color: #efefef;
+    border-radius: 6px;
+    display: none;
+    z-index: 2147483647;
+  }
+
+  #chat-frame{
+    height: 580px;
+    width: 480px;
+  }
+
+  #chat-close {
+    position: absolute;
+    top: -11px;
+    right: -11px;
+    padding: 5px;
+    background-color: #d9d9d9;
+    width: 16px;
+    height: 19px;
+    border: #efefef 2px solid;
+    border-radius: 54px;
+    line-height: 1.5;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  #chat-close:hover {
+    background-color: white;
+  }
+</style>
 <!-- Start of Async Drift Code -->
 <script>
 "use strict";
@@ -29,7 +68,40 @@
   }
 }();
 drift.SNIPPET_VERSION = '0.3.1';
+//drift.config({ initDelay: 5000 }); // delay of 5 seconds
+drift.load('d6yh3x69hvct');
 
+  function closeDriftModal() {
+    const iFrame = document.querySelector('#chat-frame')
+
+    // remove if already present
+    if (iFrame) {
+      iFrame.remove()
+    }
+
+    // hide the wrapper
+    document.querySelector('#chat-wrapper').style.display = 'none'
+  }
+
+  function openDriftModal() {
+    // close chat if it's already open
+    closeDriftModal()
+
+    const iFrame = document.createElement("iframe")
+    const wrapper = document.querySelector('#chat-wrapper')
+
+    // insert your landing page URL here!
+    iFrame.src = "https://drift.jerissauce.com/embed/57472/1073856"
+    iFrame.id = 'chat-frame'
+    wrapper.appendChild(iFrame)
+
+    iFrame.onload = function() {
+      wrapper.style.display = 'block'
+    }
+  }
+
+
+</script>
 <!-- End of Async Drift Code -->
 
 <!-- Start of Async Munchkin Code -->
@@ -61,4 +133,8 @@ drift.SNIPPET_VERSION = '0.3.1';
       <h1>Widget Test Home </h1>
       <p>I really hope you're enjoying Drift!</p>
       <!--<button onclick="console.log(mkto_value)">Read Cookie</button>-->
+      <button onclick="openDriftModal()">Click this to launch chat!</button>
+      <div id="chat-wrapper">
+      <span id="chat-close" onclick="closeDriftModal()"></span>
+    </div>
   </body>
