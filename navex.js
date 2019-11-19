@@ -1,9 +1,3 @@
-<!DOCTYPE html>
-
-<head>
-  <title>Drift Test - @natehoffy</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta charset='utf-8'>
 <!-- Start of Async Drift Code -->
 <script>
 "use strict";
@@ -29,37 +23,6 @@
   }
 }();
 drift.SNIPPET_VERSION = '0.3.1';
-drift.load('d6yh3x69hvct');
+drift.load('fcgx9ngywvxc');
 </script>
 <!-- End of Async Drift Code -->
-
-<!-- Start of Async Munchkin Code -->
-<script type="text/javascript">
-(function() {
-  var didInit = false;
-  function initMunchkin() {
-    if(didInit === false) {
-      didInit = true;
-      Munchkin.init('802-BEU-656');
-    }
-  }
-  var s = document.createElement('script');
-  s.type = 'text/javascript';
-  s.async = true;
-  s.src = '//munchkin.marketo.net/munchkin.js';
-  s.onreadystatechange = function() {
-    if (this.readyState == 'complete' || this.readyState == 'loaded') {
-      initMunchkin();
-    }
-  };
-  s.onload = initMunchkin;
-  document.getElementsByTagName('head')[0].appendChild(s);
-})();
-</script>
-<!-- End of Async Munchkin Code -->
-  </head>
-  <body>
-      <h1>Widget Test Home </h1>
-      <p>I really hope you're enjoying Drift!</p>
-      <!--<button onclick="console.log(mkto_value)">Read Cookie</button>-->
-  </body>
