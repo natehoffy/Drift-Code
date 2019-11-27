@@ -58,7 +58,7 @@ drift.on('ready', function() {
   };
 
   const hasInteractedThisSession = getCookie('DriftInteracted') && getCookie('DriftInteracted') === 'Yes';
-  const interactedConversationId = hasInteractedThisSession && +getCookie('DriftConversationId');
+  const interactedConversationId = hasInteractedThisSession && + getCookie('DriftConversationId');
 
   if (interactedConversationId) {
     drift.api.goToConversation({ conversationId: interactedConversationId })
