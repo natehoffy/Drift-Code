@@ -1,7 +1,4 @@
 {
-    "numberOfCallsContainingSearchTerm": 554,
-    "numberOfCallsThatPassedFilter": 554,
-    "userShortTimeZone": "ET",
     "allCallsResponse": [
         {
             "userCanAccess": true,
