@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7c929e66-f901-46f8-ae63-cd32266d3994" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/gong_responses.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gong_responses.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/~$gong_responses.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gong_data.json" beforeDir="false" afterPath="$PROJECT_DIR$/gong_data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gong_script.py" beforeDir="false" afterPath="$PROJECT_DIR$/gong_script.py" afterDir="false" />
-    </list>
+    <list default="true" id="7c929e66-f901-46f8-ae63-cd32266d3994" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
