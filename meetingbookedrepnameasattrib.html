@@ -31,11 +31,11 @@
 drift.SNIPPET_VERSION = '0.3.1';
 drift.load('d6yh3x69hvct');
 
-window.drift.on('conversation:playbookClicked',function(data) {
-  console.log(data.playbookId);
+window.drift.on("scheduling:meetingBooked", function(data) {
+  console.log("user booked a meeting with " + data.teamMember.name);
   drift.api.setUserAttributes({
-    "Recent Playbook ID": data.playbookId
-  });
+    "Drift Meeting Rep Name": data.teamMember.name
+  })
 });
 
 </script>
@@ -69,6 +69,4 @@ window.drift.on('conversation:playbookClicked',function(data) {
   <body>
       <h1>Widget Test Home </h1>
       <p>I really hope you're enjoying Drift!</p>
-      <button onclick="drift.unload()">Click this First</button>
-      <button onclick="drift.load('d6yh3x69hvct');">Click this Second</button>
   </body>
