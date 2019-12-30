@@ -37,13 +37,14 @@
   }();
   drift.SNIPPET_VERSION = '0.3.1';
   drift.load('d6yh3x69hvct');
-if(drift.on('welcomeMessage:open', function() {
-  console.log('Welcome Message is open 🌞')
-}) = true)
-drift.api.startInteraction({ interactionId: XXXXXX, goToConversation: true })
-drift.on('welcomeMessage:close', function() {
-  console.log('Welcome Message is closed 🌞')
-})
+  
+  if(drift.on('welcomeMessage:open', function() {
+    console.log('Welcome Message is open 🌞')
+  }) = true)
+  drift.api.startInteraction({ interactionId: XXXXXX, goToConversation: true })
+  drift.on('welcomeMessage:close', function() {
+    console.log('Welcome Message is closed 🌞')
+  })
 
 // reference online v offline drift link
 /* function onClick() {
