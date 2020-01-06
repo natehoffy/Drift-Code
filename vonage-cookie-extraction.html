@@ -31,8 +31,6 @@
 }();
 drift.SNIPPET_VERSION = '0.3.1';
 drift.load('d6yh3x69hvct');
-
-// set attribute of the cookie value in drift
     
 </script>
 <!-- End of Async Drift Code -->
@@ -66,6 +64,11 @@ drift.load('d6yh3x69hvct');
 // read cookie function
 function readCookie(name) {
     var value = document.cookie.match('(^|[^;]+)\\s*' + name + '\\s*=\\s*([^;]+)');
+    if (!value) {
+      return null;
+    } else {
+      return value.pop();
+    }
     return value ? value.pop() : '';
 };
 
@@ -80,16 +83,15 @@ function cookieToObject(myObject) {
 };
 
 // store the cookie as an object
-var cval = readCookie('_mkto_trk').split("&");
-
-// check if the cookie is set -- if first visit, reload the page and then check for the specific key value, else just
-// get the key value
-if (cval === undefined || cval.length < 2) {
-    location.reload();
-} else {
-    idValue = cookieToObject(cval);
-    console.log('ID Val: ' + idValue);
+function finalObject(){
+  var cval = readCookie('_mkto_trk').split("&");
+  idValue = cookieToObject(cval);
+  return idValue;
 };
+
+setInterval(finalObject(),3000);
+console.log(idValue);
+
 </script>
 
   </head>
