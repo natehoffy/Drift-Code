@@ -33,6 +33,24 @@
 drift.SNIPPET_VERSION = '0.3.1';
 drift.load('d6yh3x69hvct');
 
+window.drift.on('emailCapture', function(e) {
+    $.ajax({
+        url: 'dummy',
+        type: 'GET',
+        data: {}
+    })
+    $.ajax({
+    url: 'https://api.yoursite.com/form/endpoint/here', //Change to your POST endpoint
+    type: 'POST',
+    data: {
+      email: e.data.email,
+      id: getCookie('userID'),
+      utm_campaign: getUrlVars()["utm_campaign"]
+      // Anything else we want to pass in
+    }
+  });
+});
+
 </script>
 <!-- End of Async Drift Code -->
 

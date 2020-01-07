@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7c929e66-f901-46f8-ae63-cd32266d3994" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/citrix_accounts.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vonage-cookie-extraction.html" beforeDir="false" afterPath="$PROJECT_DIR$/vonage-cookie-extraction.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/citrix_accounts.py" beforeDir="false" afterPath="$PROJECT_DIR$/citrix_accounts.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

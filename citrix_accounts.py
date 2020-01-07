@@ -20,6 +20,7 @@ def set_urls():
 
 
 def get_accounts():
+    set_urls()
     r = requests.get(url=set_urls(), headers=headers)
     r.raise_for_status()
     account_json = r.json()
@@ -29,8 +30,9 @@ def get_accounts():
 account_data = get_accounts()['data']['accounts']
 df = json_normalize(account_data)
 print('Initial pass complete! \n')
-print(df)
+print(df.tail())
 print()
+
 try:
     accounts_next = get_accounts()['data']['next']
 except:
@@ -39,13 +41,12 @@ except:
 
 if len(accounts_next) > 0:
     paginator = accounts_next
-    print(type(paginator))
     account_data = get_accounts()['data']['accounts']
+    print(set_urls())
     df2 = json_normalize(account_data)
     print('Second pass complete! \n')
-    print(df2)
     df.append(df2)
-    print(df)
+    print(df.tail())
 else:
     print('This program is finished')
 
