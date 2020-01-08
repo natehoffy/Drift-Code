@@ -1,48 +1,76 @@
-import json
 import pandas as pd
 import requests
 from pandas.io.json import json_normalize
-from requests.exceptions import HTTPError
-# from requests.auth import AuthBase
 
 
-def authorization(auth_type, auth_token):
-    auth = auth_type + auth_token
-    headers = {'Authorization': auth, 'Content-Type': 'application/json'}
-    return headers
+class DriftAccounts(object):
+    """Accounts in Drift"""
+    # Value of the set is represented by a DataFrame of accounts, self.df
+
+    def __init__(self):
+        """Create an empty dataframe"""
+        self.df = pd.DataFrame()
 
 
-def get_accounts(url, authenticator):
-    r = requests.get(url=url, headers=authenticator)
-    r.raise_for_status()
-    account_json = r.json()
-    return account_json
+    def auth(self, auth_type, auth_token):
+        auth = auth_type + auth_token
+        headers = {'Authorization': auth, 'Content-Type': 'application/json'}
+        return headers
 
 
-def process_accounts(account_json):
-    account_data = account_json['data']['accounts']
-    df_temp = json_normalize(account_data)
-    return df_temp
+    def get_accounts(self, url, headers):
+        r = requests.get(url=url, headers=headers)
+        r.raise_for_status()
+        account_json = r.json()
+        return account_json
 
 
-def pagination(account_json):
-    account_next = account_json['data']['next']
-    return account_next
+    def process_accounts(self, account_json):
+        account_data = account_json['data']['accounts']
+        df_temp = json_normalize(account_data)
+        return df_temp
 
 
-authenticator = authorization('Bearer ', 'y4bXm8rHPgn9Xa7fuE4hDerYhZXg9zXC')
-base_url = 'https://driftapi.com'
-paginator = '/accounts?index=0&size=10'
-submitting_url = base_url + paginator
-account_table = pd.DataFrame()
+    def pagination(self, account_json):
+        next = account_json['data']['next']
+        return next
 
-while len(paginator) > 0:
-    account_json = get_accounts(submitting_url, authenticator)
-    account_table = account_table.append(process_accounts(account_json), sort=False)
+
+    def total(self, account_json):
+        total = account_json['data']['total']
+        return total
+
+
+    def constructor(self, index, size):
+        base_url = 'https://driftapi.com'
+        paginator = '/accounts?index=' + str(index) + '&size=' + str(size)
+        submitting_url = base_url + paginator
+        return submitting_url
+
+
+df = DriftAccounts().df
+error = False
+index = 0
+size = 10
+
+while not error:
+
+    a = DriftAccounts()
+    url = a.constructor(index, size)
+    auth = a.auth('Bearer ', 'y4bXm8rHPgn9Xa7fuE4hDerYhZXg9zXC')
+    aJson = a.get_accounts(url, auth)
+    aData = a.process_accounts(aJson)
+    df = df.append(aData, sort = False)
+
     try:
-        paginator = pagination(account_json)
+        aPage = a.pagination(aJson)
     except KeyError as ke:
-        print('There are no more pages of accounts.')
-        paginator = ''
+        error = True
+        aPage = ''
 
-print(account_table)
+    if len(aPage) > 0 :
+        index += 10
+
+desiredId = df.loc[df['domain'] == 'drift.com', 'accountId']
+
+print(desiredId)
