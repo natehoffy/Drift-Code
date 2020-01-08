@@ -5,7 +5,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/Drift-Code.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Drift-Code.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index_ptc.html" beforeDir="false" afterPath="$PROJECT_DIR$/index_ptc.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,9 +84,10 @@
       <screen x="0" y="23" width="2560" height="980" />
     </state>
     <state x="758" y="162" width="800" height="717" key="#Intentions/-1920.23.1920.1177/0.23.2560.980@0.23.2560.980" timestamp="1578442590429" />
-    <state x="233" y="48" key="SettingsEditor" timestamp="1578454957686">
-      <screen x="0" y="23" width="1440" height="813" />
+    <state x="692" y="84" key="SettingsEditor" timestamp="1578519353330">
+      <screen x="0" y="23" width="2560" height="980" />
     </state>
+    <state x="692" y="84" key="SettingsEditor/-1920.23.1920.1177/0.23.2560.980@0.23.2560.980" timestamp="1578519353330" />
     <state x="233" y="48" key="SettingsEditor/0.23.1440.813@0.23.1440.813" timestamp="1578454957686" />
     <state x="844" y="250" width="670" height="676" key="search.everywhere.popup" timestamp="1578442056227">
       <screen x="0" y="23" width="2560" height="980" />
