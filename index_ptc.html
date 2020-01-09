@@ -30,9 +30,15 @@
 drift.SNIPPET_VERSION = '0.3.1';
 drift.load('fs4rizkxmwrp');
 
+window.drift.on('ready', function(api){
+  drift.api.setUserAttributes({
+    AID: new URLSearchParams(window.location.search).get('aid')
+  })
+})
+
 drift.on('emailCapture', function(api) {
   drift.api.setUserAttributes({
-    CID: new URLSearchParams(window.location.search).get('CID')
+    AID: new URLSearchParams(window.location.search).get('aid')
   })
 })
 
