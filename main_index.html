@@ -31,6 +31,11 @@
   }();
   drift.SNIPPET_VERSION = '0.3.1';
   drift.load('d6yh3x69hvct');
+
+  window.drift.on("scheduling:meetingBooked", function(data) {
+    console.log("user booked a meeting with " + data.teamMember.name);
+  });
+
   </script>
   <!-- End of Async Drift Code -->
 
@@ -62,4 +67,12 @@
   <body>
       <h1>Widget Test Home </h1>
       <p>I really hope you're enjoying Drift!</p>
+      <div>
+        <iframe
+          src="https://testt.driftqa.click/4f80602b-21d8-43ca-9448-57a2d3fcbc6a"
+          id="drift-embed-frame"
+          height="500px"
+          width="450px"
+        />
+      </div>
   </body>
