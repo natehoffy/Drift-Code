@@ -57,7 +57,7 @@ while not error:
 
     a = DriftAccounts()
     url = a.constructor(index, size)
-    auth = a.auth('Bearer ', 'y4bXm8rHPgn9Xa7fuE4hDerYhZXg9zXC')
+    auth = a.auth('Bearer ', 'insert_bearer_here')
     aJson = a.get_accounts(url, auth)
     aData = a.process_accounts(aJson)
     df = df.append(aData, sort = False)
