@@ -53,7 +53,7 @@ drift.on('ready',function(data) {
   <script>
   window.drift.on("conversation:buttonClicked", function(data) {
     console.log(data);
-    if (data.buttonBody == "Talk to Support") {
+    if (data.buttonBody == "Product Question") {
       drift.unload();
       $zopim.livechat.button.show();
       $zopim.livechat.window.show();
