@@ -35,14 +35,12 @@ drift.load('d6yh3x69hvct');
 
 drift.on("message:sent", function(data) {
   console.log("Message Sent")
-  if(data.conversationId > 0) {
-    document.cookie = "DriftInteracted=Yes";
-    document.cookie = "DriftPlaybookDismissed=Yes"
-    document.cookie = "DriftConversationId=" + data.conversationId;
-  };
+  document.cookie = "DriftInteracted=Yes";
+  document.cookie = "DriftPlaybookDismissed=Yes"
+  document.cookie = "DriftConversationId=" + data.conversationId;
 });
 
-drift.on('sidebarClose', function() {
+drift.on('sidebarClose', function(e) {
   // use this if you want new playbooks to fire / don't want the current conversation to pop up again
   // if the site visitor closes out the chat
   // the end result is that the convesration only "follows" you around the website if you don't X out of the chat
