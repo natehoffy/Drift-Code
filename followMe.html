@@ -34,9 +34,8 @@ drift.SNIPPET_VERSION = '0.3.1';
 drift.load('d6yh3x69hvct');
 
 drift.on("message:sent", function(data) {
-  console.log("Message Sent")
-  window.sessionStorage.setItem('driftInteracted', 'yes');
-  window.sessionStorage.setItem('driftConversationId', data.conversationId);
+  sessionStorage.setItem('driftInteracted', 'yes');
+  sessionStorage.setItem('driftConversationId', data.conversationId);
 });
 
 drift.on('sidebarClose', function(e) {
@@ -44,22 +43,16 @@ drift.on('sidebarClose', function(e) {
   // use this if you want new playbooks to fire / don't want the current conversation to pop up again
   // if the site visitor closes out the chat
   // the end result is that the convesration only "follows" you around the website if you don't X out of the chat
-  document.cookie = "DriftConversationId= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
-  document.cookie = "DriftInteracted= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
+  sessionStorage.removeItem('drftInteracted');
+  sessionStorage.removeItem('driftConversationId');
 });
 
 drift.on('ready', function() {
-  function getCookie(name) {
-    var re = new RegExp(name + "=([^;]+)");
-    var value = re.exec(document.cookie);
-    return (value != null) ? unescape(value[1]) : null;
-  };
-
-  const hasInteractedThisSession = getCookie('DriftInteracted') && getCookie('DriftInteracted') === 'Yes';
-  const interactedConversationId = hasInteractedThisSession && + getCookie('DriftConversationId');
+  const hasInteractedThisSession = sessionStorage.getItem('driftInteracted') === 'yes';
+  const interactedConversationId = hasInteractedThisSession && +sessionStorage.getItem('driftConversationId');
 
   if (interactedConversationId) {
-    drift.api.goToConversation({ conversationId: interactedConversationId })
+    drift.api.goToConversation({ conversationId: interactedConversationId });
   };
 });
 
