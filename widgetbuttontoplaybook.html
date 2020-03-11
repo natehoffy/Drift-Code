@@ -43,13 +43,6 @@
       api.widget.hide();
     });
 
-    setTimeout(function() {
-      window.drift.on('ready', function() { // When the page loads and Drift is ready
-      	drift.api.startInteraction({ interactionId: 64042 }); // Fire this particular playbook (make sure to put the proper interaction ID in)
-      });
-    },
-    30000);
-
 </script>
   <!-- End of Async Drift Code -->
 

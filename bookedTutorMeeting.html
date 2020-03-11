@@ -31,6 +31,11 @@
 }();
 drift.SNIPPET_VERSION = '0.3.1';
 drift.load('d6yh3x69hvct');
+drift.on('ready', function(){
+    drift.api.setUserAttributes({
+        booked_tutor_meeting: false
+    });
+});
 </script>
 <!-- End of Async Drift Code -->
 
