@@ -57,3 +57,5 @@ for i in range(len(convoIdList)):
 ##### End second request to retrieve list of conversations #####
 
 df2.to_csv(r'Josh_File.csv')
+
+df.participants.value_counts().reset_index(name='id')
