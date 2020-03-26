@@ -35,41 +35,18 @@
 
   let playbookSet = false;
   window.drift.on('message', function(data) {
+    console.log(data.playbookId);
       if (!playbookSet) {
           drift.api.setUserAttributes({
               cisco_playbook_id: data.playbookId
-          })
+          });
           playbookSet = true;
-      }
+      };
   });
 
   </script>
   <!-- End of Async Drift Code -->
 
-<!-- Start of Async Munchkin Code -->
-<script type="text/javascript">
-(function() {
-  var didInit = false;
-  function initMunchkin() {
-    if(didInit === false) {
-      didInit = true;
-      Munchkin.init('802-BEU-656');
-    }
-  }
-  var s = document.createElement('script');
-  s.type = 'text/javascript';
-  s.async = true;
-  s.src = '//munchkin.marketo.net/munchkin.js';
-  s.onreadystatechange = function() {
-    if (this.readyState == 'complete' || this.readyState == 'loaded') {
-      initMunchkin();
-    }
-  };
-  s.onload = initMunchkin;
-  document.getElementsByTagName('head')[0].appendChild(s);
-})();
-</script>
-<!-- End of Async Munchkin Code -->
   </head>
   <body>
       <h1>Widget Test Home </h1>
