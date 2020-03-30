@@ -32,10 +32,24 @@
 drift.SNIPPET_VERSION = '0.3.1';
 drift.load('d6yh3x69hvct');
 
+function convertTimestamp(timestamp) {
+    var d = new Date(timestamp),
+        MM = ('0' + (d.getMonth() + 1)).slice(-2),
+        dd = ('0' + d.getDate()).slice(-2),
+        yyyy = d.getFullYear(),
+        hh = d.getHours(),
+        mm = ('0' + d.getMinutes()).slice(-2),
+        ss = ('0' + d.getSeconds()).slice(-2),
+        time;
+    time = MM + '/' + dd + '/' + yyyy + ' ' + hh + ':' + mm + ':' + ss;
+    return time;
+};
+
 window.drift.on("scheduling:meetingBooked", function(data) {
+  var meeting_time = convertTimestamp(data.meeting.time);
   drift.api.setUserAttributes({
       team_member: data.teamMember.name,
-      meeting_time: data.meeting.time
+      new_meeting_time: meeting_time
   });
 });
 
