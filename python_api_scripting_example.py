@@ -25,7 +25,7 @@ convo_reporting_data = json.dumps({
         }
     ],
     "metrics": [
-        "meaningfulConversation"
+        "botStatus": BOT_ONLY
     ]
 })
 
