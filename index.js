@@ -14,7 +14,7 @@ app.listen(PORT, () => console.log(`Testing app listening on port ${PORT}!`))
 
 // create external connection - I recommend commenting this out and install ngrok globally
 // so the endpoint doesn't refresh every time you restart
-ngrok.connect(PORT).then(url => console.log(`External Forwarding URL is: ${url}/api`))
+// ngrok.connect(PORT).then(url => console.log(`External Forwarding URL is: ${url}/api`))
 
 // POST request to our /api endpoint
 app.post('/api', (req, res) => {

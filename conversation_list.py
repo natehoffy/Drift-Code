@@ -1,7 +1,9 @@
 import pandas as pd
 import requests
 from pandas.io.json import json_normalize
+import time
 
+start_time = time.time()
 
 class Conversation(object):
     """Conversations in Drift"""
@@ -25,8 +27,8 @@ class Conversation(object):
         return conversation_json
 
 
-    def process_conversations(self, account_json):
-        conversation_data = conversation_json['data']['id']
+    def process_conversations(self, conversation_json):
+        conversation_data = conversation_json['data']
         df_temp = json_normalize(conversation_data)
         return df_temp
 
@@ -47,30 +49,38 @@ class Conversation(object):
         submitting_url = base_url + paginator
         return submitting_url
 
-
-df = Conversation().df
+a = Conversation()
+df = a.df
 error = False
 index = 0
-size = 10
+size = 25
+counter = 0
 
 while not error:
 
-    a = Conversation()
     url = a.constructor(index, size)
-    auth = a.auth('Bearer ', 'insert_bearer_here')
-    aJson = a.get_accounts(url, auth)
-    aData = a.process_accounts(aJson)
+    auth = a.auth('Bearer ', 'ButjokbrDzrnxUse1rGDOPc6zHX30vFu')
+    aJson = a.get_conversations(url, auth)
+    aData = a.process_conversations(aJson)
     df = df.append(aData, sort = False)
 
     try:
         aPage = a.pagination(aJson)
-    except KeyError as ke:
+        counter += 1
+        print(counter)
+    except KeyError:
         error = True
-        aPage = ''
+        aPage = False
+        print(aPage)
 
-    if len(aPage) > 0 :
-        index += 10
+    if aPage == True:
+        index += 25
 
-desiredId = df.loc[df['domain'] == 'drift.com', 'accountId']
+convoIdList = df['id'].to_list()
+countIds = 0
+for item in convoIdList:
+    countIds += 1
 
-print(desiredId)
+print(countIds)
+run_time = time.time() - start_time
+print("--- %s minutes ---" % (run_time/60))
