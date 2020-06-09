@@ -37,11 +37,13 @@ drift.load('d6yh3x69hvct');
 <script>
     drift.on("message:sent", function(data) {
         console.log('Message Sent');
+        console.log(data.conversationId);
         sessionStorage.setItem('driftInteracted', 'yes');
         sessionStorage.setItem('driftConversationId', data.conversationId);
     });
     window.drift.on("campaign:submit", function(data) {
       console.log("User sent me a message", JSON.stringify(data));
+      console.log(data.conversationId)
       sessionStorage.setItem('driftInteracted', 'yes');
       sessionStorage.setItem('driftConversationId', data.conversationId);
     });
