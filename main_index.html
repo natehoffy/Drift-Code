@@ -31,6 +31,11 @@
 }();
 drift.SNIPPET_VERSION = '0.3.1';
 drift.load('d6yh3x69hvct');
+
+window.drift.on("conversation:buttonClicked", function(data) {
+  console.log(data);
+});
+
 </script>
 <!-- End of Async Drift Code -->
 

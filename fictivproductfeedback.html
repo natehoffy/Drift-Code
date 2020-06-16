@@ -35,7 +35,7 @@ drift.load('d6yh3x69hvct');
 function productFeedback() {
     var productUrl = document.URL;
     drift.api.setUserAttributes({
-        fictiv_product = productUrl
+        fictiv_product: productUrl
     });
     drift.api.startInteraction({ interactionId: 200781 });
 };
@@ -47,5 +47,5 @@ function productFeedback() {
   <body>
       <h1>Widget Test Home </h1>
       <p>I really hope you're enjoying Drift!</p>
-      <button onclick="productFeedback()">Product Feedback</button>
+      <button onclick=productFeedback();>Product Feedback</button>
   </body>
