@@ -13,7 +13,7 @@
   var t = window.driftt = window.drift = window.driftt || [];
   if (!t.init) {
     if (t.invoked) return void (window.console && console.error && console.error("Drift snippet included twice."));
-    t.invoked = !0, t.methods = [ "identify", "config", "track", "reset", "debug", "show", "ping", "page", "hide", "off", "on" ], 
+    t.invoked = !0, t.methods = [ "identify", "config", "track", "reset", "debug", "show", "ping", "page", "hide", "off", "on" ],
     t.factory = function(e) {
       return function() {
         var n = Array.prototype.slice.call(arguments);
@@ -34,6 +34,10 @@ drift.load('d6yh3x69hvct');
 
 window.drift.on("conversation:buttonClicked", function(data) {
   console.log(data);
+});
+
+window.drift.on("message", function(data) {
+  console.log("User received a message from ' + data.teamMember.name + ' in conversation " + data.conversationId);
 });
 
 </script>
