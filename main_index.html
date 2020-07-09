@@ -32,12 +32,13 @@
 drift.SNIPPET_VERSION = '0.3.1';
 drift.load('d6yh3x69hvct');
 
-window.drift.on("conversation:buttonClicked", function(data) {
-  console.log(data);
-});
-
-window.drift.on("message", function(data) {
-  console.log("User received a message from ' + data.teamMember.name + ' in conversation " + data.conversationId);
+let executed = false;
+window.drift.on("conversation:playbookFired", function(data) {
+    var intId = data.interactionId;
+    if (!executed) {
+      drift.api.startInteraction({ interactionId:intId, goToConversation: true });
+      executed = true;
+    };
 });
 
 </script>
