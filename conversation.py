@@ -29,5 +29,3 @@ class Conversation(object):
     def pagination(self, conversation_json):
         more = conversation_json['pagination']['more']
         return more
-
-https://driftapi.com/conversations/list
