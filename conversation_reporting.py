@@ -18,7 +18,9 @@ requestBody = json.dumps({
         }
     ],
     "metrics": [
-        "meaningfulConversation"
+        "meaningfulConversation",
+        "id",
+        "firstCloseAt"
     ]
 })
 
@@ -32,8 +34,9 @@ try:
     r = requests.post(url = conversationReportsUrl, data = requestBody, headers = requestHeaders)
     r.raise_for_status()
     rJson = r.json()
-    conversationIds = rJson['data']
-    df = json_normalize(conversationIds)
+    #conversationIds = rJson['data']
+    metrics = rJson['data'][]
+    df = json_normalize(metrics)
 except HTTPError as http_error:
     print(f'HTTP error occurred: {http_error}')
 except Exception as error:
@@ -41,7 +44,8 @@ except Exception as error:
 else:
     print('Success!\n')
 
-print(conversationIds)
+#print(conversationIds)
+print(metrics)
 convoIdList = df['conversationId'].tolist()
 counter = 0
 
@@ -49,4 +53,3 @@ for id in convoIdList:
     counter += 1
 
 print(counter)
-
