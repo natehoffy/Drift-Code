@@ -32,14 +32,32 @@
 drift.SNIPPET_VERSION = '0.3.1';
 drift.load('d6yh3x69hvct');
 
-let executed = false;
+let playbookFired = false
 window.drift.on("conversation:playbookFired", function(data) {
-    var intId = data.interactionId;
-    if (!executed) {
-      drift.api.startInteraction({ interactionId:intId, goToConversation: true });
-      executed = true;
-    };
-});
+    if (!playbookFired) {
+        drift.api.startInteraction({ interactionId: data.interactionId, goToConversation: true})
+        playbookFired = true
+    }
+})
+
+/*
+const onFired = () => {
+  window.drift.on("conversation:playbookFired", function(data) {
+    return data;
+  });
+};
+
+const openSidebar = (data) => {
+  drift.api.startInteraction({ interactionId: data.interactionId, goToConversation: true });
+  playbookFired = true
+  return playbookFired
+};
+
+let playbookFired = false
+while (!playbookFired) {
+  onFired()
+  openSidebar(data)
+} */
 
 </script>
 <!-- End of Async Drift Code -->
