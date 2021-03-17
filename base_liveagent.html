@@ -34,12 +34,14 @@
             }
         }();
         drift.SNIPPET_VERSION = '0.3.1';
-        drift.load('d6yh3x69hvct');
+        drift.load('e9y7rygv2635');
 
         window.drift.on("conversation:buttonClicked", function(data) {
-            if (data.buttonBody === "I'm a customer and need support") {
-                console.log("Right button")
-                drift.unload();
+            console.log("Button Clicked - checking logic");
+            console.log(data.buttonBody);
+            if (data.buttonBody === "I&#39;m a customer and need support") {
+                console.log("Right button");
+                window.drift.unload();
                 liveagent.startChat('57370000000TN5N');
             }
         });
