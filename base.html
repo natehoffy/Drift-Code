@@ -4,10 +4,6 @@
   <title>Drift Test - @natehoffy</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta charset='utf-8'>
-<script type="text/javascript" src="https://c.la1s1.salesforceliveagent.com/content/g/deployment.js"></script>
-<script type="text/javascript">
-    liveagent.init('https://d.la1s1.salesforceliveagent.com/chat', '57270000000PAwL', '00D700000008AKW');
-</script>
 
 <!-- Start of Async Drift Code -->
 <script>
@@ -35,14 +31,6 @@
 }();
 drift.SNIPPET_VERSION = '0.3.1';
 drift.load('d6yh3x69hvct');
-
-window.drift.on("conversation:buttonClicked", function(data) {
-    if (data.buttonBody === "I'm a customer and need support") {
-        console.log("Right button")
-        drift.unload();
-        liveagent.startChat('57370000000TN5N');
-    }
-});
 
 </script>
 <!-- End of Async Drift Code -->
